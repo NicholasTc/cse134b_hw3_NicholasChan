@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Experiments — Required Elements</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>main { border: 1px solid #bbb; }</style>
+</head>
+<body>
+<header><h1>Experiments</h1></header>
+
+<main>
+  <section>
+    <h2>&lt;template&gt;</h2>
+    <template id="card-template">
+      <article>
+        <h3>Template Card</h3>
+        <p>This content remains inert (no JS to clone it yet).</p>
+      </article>
+    </template>
+    <p>The template is present in markup as required.</p>
+  </section>
+
+  <section>
+    <h2>&lt;picture&gt; + &lt;source&gt; + &lt;img&gt;</h2>
+    <picture>
+      <source srcset="/assets/img/hero.jpg" type="image/jpeg">
+      <img src="/assets/img/hero.jpg" alt="Responsive example" width="640" height="360">
+    </picture>
+  </section>
+
+  <section>
+    <h2>&lt;audio&gt; + &lt;source&gt;</h2>
+    <audio controls>
+        <source src="/assets/media/silence.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+  </section>
+
+  
+<section>
+  <h2>&lt;video&gt; + &lt;source&gt;</h2>
+  <video width="320" height="180" controls>
+    <source src="/assets/media/placeholder.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</section>
+
+  <section>
+    <h2>&lt;canvas&gt; (≤15 lines JS)</h2>
+    <canvas id="c" width="200" height="80">Canvas fallback text</canvas>
+    <script>
+      // tiny canvas demo (under 15 lines)
+      const ctx = document.getElementById('c').getContext('2d');
+      ctx.fillStyle = '#ddd';
+      ctx.fillRect(0,0,200,80);
+      ctx.fillStyle = '#333';
+      ctx.font = '16px sans-serif';
+      ctx.fillText('Hello Canvas', 50, 45);
+    </script>
+  </section>
+</main>
+
+<footer><p>End of experiments.</p></footer>
+</body>
+</html>

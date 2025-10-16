@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Nicholas Chan — Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portfolio of Nicholas Chan — projects, résumé, and contact.">
+  <link rel="icon" href="data:,">
+  <style>
+    /* Allowed: use a border to show structure */
+    main { border: 1px solid #bbb; }
+    /* Semantic CSS custom element — per assignment, CSS inside this selector won't count */
+    impact-badge { border: 1px dashed #999; }
+  </style>
+  <script>
+    /* Placeholder for analytics (allowed as a placeholder) */
+    /* window.__analytics = { enabled:false }; */
+  </script>
+</head>
+<body>
+  <header>
+    <nav aria-label="primary">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/projects/">Projects</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/contact/">Contact</a></li>
+        <li><a href="/resume/Nicholas-Chan-Resume.pdf">Resume</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="highlights">
+    <h1>This is a <strong>big h1</strong> title describing my personal values</h1>
+    <p><em>Short intro:</em> I’m <b>Nicholas</b>, a CS student who enjoys building full-stack apps. <i>Impact first.</i></p>
+
+    <!-- Use plain links instead of <button> inside <a> -->
+    <p>
+      <a href="/projects/">View Projects</a>
+      <br>
+      <a href="/resume/Nicholas-Chan-Resume.pdf">Resume Download</a>
+    </p>
+
+    <section aria-labelledby="badge">
+      <h2 id="badge">Highlights</h2>
+      <impact-badge>Reduced query time by 40% on a Spring Boot service</impact-badge>
+    </section>
+
+    <section aria-labelledby="svgdemo">
+      <h2 id="svgdemo">Simple SVG (attribute-styled)</h2>
+      <svg width="120" height="60" viewBox="0 0 120 60" role="img" aria-label="Demo shape">
+        <rect x="5" y="5" width="110" height="50" fill="#ddd" stroke="#333" />
+      </svg>
+    </section>
+
+    <section aria-labelledby="progress">
+      <h2 id="progress">Portfolio progress</h2>
+      <p>Phase 2 completion: <progress value="60" max="100">60%</progress></p>
+    </section>
+
+    <article aria-labelledby="feature">
+      <h2 id="feature">Highlighted project</h2>
+      <p>See the TL;DR on the Projects page.</p>
+    </article>
+
+    <section aria-labelledby="a11y">
+      <h2 id="a11y">Accessibility feature</h2>
+      <p>Respect reduced-motion; strong contrast; keyboard paths.</p>
+      <!-- Keep structure valid: demonstrate span and div, but not nested -->
+      <p>This area demonstrates a <span>span inline example</span>.</p>
+      <div>Block-level div example</div>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      Contact: <a href="mailto:nicholastc14@gmail.com">nicholastc14@gmail.com</a><br>
+      <a href="https://github.com/NicholasTc">GitHub</a> ·
+      <a href="https://www.linkedin.com/in/nictc/">LinkedIn</a>
+    </p>
+    <noscript>Your browser has JavaScript disabled. That’s fine—this site works without it.</noscript>
+  </footer>
+
+  <!-- Hello World custom element: logs to console only -->
+  <script>
+    class HelloConsole extends HTMLElement {
+      connectedCallback() { console.log("Hello world! from <hello-console>"); }
+    }
+    customElements.define('hello-console', HelloConsole);
+  </script>
+  <hello-console></hello-console>
+</body>
+</html>

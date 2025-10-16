@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Contact — Nicholas Chan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>main { border: 1px solid #bbb; }</style>
+</head>
+<body>
+<header>
+  <nav aria-label="primary">
+    <a href="/">Home</a> | <a href="/projects/">Projects</a> | <a href="/about/">About</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Contact Information</h1>
+
+  <section>
+    <h2>Email</h2>
+    <p><a href="mailto:nicholastc14@gmail.com">nicholastc14@gmail.com</a></p>
+  </section>
+
+  <section>
+    <h2>Contact Form (structure only)</h2>
+    <form>
+      <fieldset>
+        <legend>Send a message</legend>
+
+        <p>
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" autocomplete="name" required>
+        </p>
+
+        <p>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5"></textarea>
+        </p>
+
+        <button type="button">Submit</button>
+      </fieldset>
+    </form>
+  </section>
+
+  <section>
+    <h2>Preview (iframe)</h2>
+    <iframe title="Mini preview"
+            width="320" height="180"
+            srcdoc="<!doctype html><html><body><p>Hello from <b>iframe</b>.</p></body></html>"></iframe>
+  </section>
+
+  <dialog open>
+    <p>Thanks for reaching out! This is a static demo dialog.</p>
+  </dialog>
+</main>
+
+<footer>
+  <p>Find me on <a href="https://github.com/NicholasTc">GitHub</a> and
+     <a href="https://www.linkedin.com/in/nictc/">LinkedIn</a>.</p>
+</footer>
+</body>
+</html>
