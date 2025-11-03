@@ -1,52 +1,247 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Projects — Nicholas Chan</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>main { border: 1px solid #bbb; }</style>
-</head>
-<body>
-<header>
-  <nav aria-label="primary">
-    <a href="/">Home</a> | <a href="/about/">About</a> | <a href="/contact/">Contact</a>
-  </nav>
-</header>
+<!DOCTYPE html>
+<html lang="en" data-theme="auto">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Projects — Firstname Lastname</title>
+    <meta name="description" content="Project gallery with responsive images, accessible cards, and a clean grid layout." />
+    <!-- Fonts (shared with landing) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..900&family=Space+Grotesk:wght@400..700&display=swap" rel="stylesheet" />
+    <!-- Shared styles -->
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
 
-<main>
-  <h1>Projects</h1>
+  <body>
+    <!-- ================== Nav (shared) ================== -->
+    <header class="nav">
+      <div class="wrap nav-inner">
+        <div class="brand">
+          <span class="brand-dot" aria-hidden="true"></span>
+          <span>Firstname Lastname</span>
+        </div>
 
-  <section id="ui" aria-label="Filters & quick-view (no JS yet)">
-    <form>
-      <fieldset>
-        <legend>Filter by stack</legend>
-        <label><input type="checkbox" name="stack" value="backend"> Backend</label>
-        <label><input type="checkbox" name="stack" value="react"> React</label>
-        <label><input type="checkbox" name="stack" value="ml"> ML</label>
-      </fieldset>
-      <button type="button">Apply</button> <!-- doesn't have to work yet -->
-    </form>
-  </section>
+        <nav class="links" aria-label="Primary">
+          <a href="/index.html#projects">Home</a>
+          <a href="/projects.html" aria-current="page">Projects</a>
+          <a href="/index.html#about">About</a>
+          <a href="/index.html#contact">Contact</a>
+          <!-- keep “Live/Repo” surfaced on page 1 per HW spec -->
+          <a id="live" href="#" aria-label="Live site">Live</a>
+          <a id="repo" href="#" aria-label="GitHub repository">Repo</a>
 
-  <article>
-    <h2>GymApp — Flask + React</h2>
-    <p>Progress prediction and workouts.</p>
-    <p><a href="/projects/gymapp.html">View</a></p>
-  </article>
+          <!-- Theme Toggle (disabled – no JS in HW3) -->
+          <button class="toggle" type="button" aria-disabled="true" disabled title="Theme follows system preference">
+            <span class="icon" aria-hidden="true">🌙</span>
+            <span>Dark</span>
+            <span class="sr-only">Theme toggle (disabled for this assignment)</span>
+          </button>
+        </nav>
+      </div>
+    </header>
 
-  <article>
-    <h2>Pollen Atlas — WP Widget</h2>
-    <p>City pollen data, charts, and retention +23%.</p>
-    <p><a href="/projects/pollen-atlas.html">View</a></p>
-  </article>
+    <main class="wrap">
+      <!-- ================== Hero ================== -->
+      <section class="hero projects-hero" aria-label="Projects intro">
+        <h1>Selected Work</h1>
+        <p class="lead">A focused gallery of shipped projects—each card lists stack, results, and a responsive preview image.</p>
+      </section>
 
-  <article>
-    <h2>Packing Slip Gen — Spring Boot</h2>
-    <p>99.2% endpoint success; PDF export.</p>
-    <p><a href="/projects/packing-slip-gen.html">View</a></p>
-  </article>
-</main>
+      <!-- ================== Filters / Layout controls (presentational only) ================== -->
+      <section class="projects-head" aria-label="Filters and layout">
+        <div class="controls">
+          <div class="filters" role="toolbar" aria-label="Project filters">
+            <button class="filter" aria-pressed="true">All</button>
+            <button class="filter" aria-pressed="false">Web</button>
+            <button class="filter" aria-pressed="false">Backend</button>
+            <button class="filter" aria-pressed="false">ML</button>
+            <button class="filter" aria-pressed="false">WordPress</button>
+          </div>
 
-<footer><p><a href="/resume/Nicholas-Chan-Resume.pdf">Download Resume</a></p></footer>
-</body>
+          <div class="layout" role="toolbar" aria-label="Layout">
+            <!-- Default to no highlighted state -->
+            <button aria-pressed="false" title="Grid" type="button">▦</button>
+            <button aria-pressed="false" title="List" type="button">≣</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================== Projects Grid ================== -->
+      <section class="proj-grid" aria-labelledby="gallery-title">
+        <h2 id="gallery-title" class="sr-only">Project gallery</h2>
+
+        <!-- Card 1 (placeholder image via Picsum) -->
+        <article class="proj" data-kind="backend web">
+          <figure class="thumb" aria-hidden="true">
+            <picture>
+              <source type="image/webp"
+                srcset="
+                  https://picsum.photos/800/450.webp?random=201 800w,
+                  https://picsum.photos/1200/675.webp?random=201 1200w
+                " />
+              <img
+                src="https://picsum.photos/800/450?random=201"
+                alt="Project thumbnail placeholder"
+                width="800" height="450" loading="lazy"
+                sizes="(max-width: 620px) 100vw, (max-width: 980px) 50vw, 33vw" />
+            </picture>
+          </figure>
+          <div class="body">
+            <div class="title">GymApp — Flask + React</div>
+            <div class="meta">
+              <span class="badge">Flask</span><span class="badge">React</span><span class="badge">Postgres</span>
+            </div>
+            <div class="impact muted">“−42% query time via indexed joins + caching.”</div>
+            <div class="row">
+              <button class="quick" type="button" aria-disabled="true" title="Quick-view disabled (no JS)">Quick-view</button>
+              <div class="cta"><a class="btn" href="#">Case Study →</a></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="proj" data-kind="wordpress web">
+          <figure class="thumb" aria-hidden="true">
+            <picture>
+              <source type="image/webp"
+                srcset="
+                  https://picsum.photos/800/450.webp?random=202 800w,
+                  https://picsum.photos/1200/675.webp?random=202 1200w
+                " />
+              <img
+                src="https://picsum.photos/800/450?random=202"
+                alt="Project thumbnail placeholder"
+                width="800" height="450" loading="lazy"
+                sizes="(max-width: 620px) 100vw, (max-width: 980px) 50vw, 33vw" />
+            </picture>
+          </figure>
+          <div class="body">
+            <div class="title">Pollen Atlas — WP Widget</div>
+            <div class="meta">
+              <span class="badge">WordPress</span><span class="badge">APIs</span><span class="badge">Charts</span>
+            </div>
+            <div class="impact muted">“+23% retention on city pages.”</div>
+            <div class="row">
+              <button class="quick" type="button" aria-disabled="true">Quick-view</button>
+              <div class="cta"><a class="btn" href="#">Live</a></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="proj" data-kind="backend">
+          <figure class="thumb" aria-hidden="true">
+            <picture>
+              <source type="image/webp"
+                srcset="
+                  https://picsum.photos/800/450.webp?random=203 800w,
+                  https://picsum.photos/1200/675.webp?random=203 1200w
+                " />
+              <img
+                src="https://picsum.photos/800/450?random=203"
+                alt="Project thumbnail placeholder"
+                width="800" height="450" loading="lazy"
+                sizes="(max-width: 620px) 100vw, (max-width: 980px) 50vw, 33vw" />
+            </picture>
+          </figure>
+          <div class="body">
+            <div class="title">ResumeAI Tool — OpenAI</div>
+            <div class="meta">
+              <span class="badge">Python</span><span class="badge">OpenAI</span><span class="badge">PDF</span>
+            </div>
+            <div class="impact muted">“~85% parsing accuracy across formats.”</div>
+            <div class="row">
+              <button class="quick" type="button" aria-disabled="true">Quick-view</button>
+              <div class="cta"><a class="btn" href="#">Repository</a></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="proj" data-kind="web">
+          <figure class="thumb" aria-hidden="true">
+            <picture>
+              <source type="image/webp"
+                srcset="
+                  https://picsum.photos/800/450.webp?random=204 800w,
+                  https://picsum.photos/1200/675.webp?random=204 1200w
+                " />
+              <img
+                src="https://picsum.photos/800/450?random=204"
+                alt="Project thumbnail placeholder"
+                width="800" height="450" loading="lazy"
+                sizes="(max-width: 620px) 100vw, (max-width: 980px) 50vw, 33vw" />
+            </picture>
+          </figure>
+          <div class="body">
+            <div class="title">Weather/AQI Widget</div>
+            <div class="meta"><span class="badge">JS</span><span class="badge">Accessibility</span></div>
+            <div class="impact muted">“ARIA-labeled charts; keyboard-navigable legends.”</div>
+            <div class="row">
+              <button class="quick" type="button" aria-disabled="true">Quick-view</button>
+              <div class="cta"><a class="btn" href="#">Case Study →</a></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 5 -->
+        <article class="proj" data-kind="web">
+          <figure class="thumb" aria-hidden="true">
+            <picture>
+              <source type="image/webp"
+                srcset="
+                  https://picsum.photos/800/450.webp?random=205 800w,
+                  https://picsum.photos/1200/675.webp?random=205 1200w
+                " />
+              <img
+                src="https://picsum.photos/800/450?random=205"
+                alt="Project thumbnail placeholder"
+                width="800" height="450" loading="lazy"
+                sizes="(max-width: 620px) 100vw, (max-width: 980px) 50vw, 33vw" />
+            </picture>
+          </figure>
+          <div class="body">
+            <div class="title">InternLink — Networking App</div>
+            <div class="meta"><span class="badge">React</span><span class="badge">Node</span></div>
+            <div class="impact muted">“Streamlined laddering interviews → clearer personas.”</div>
+            <div class="row">
+              <button class="quick" type="button" aria-disabled="true">Quick-view</button>
+              <div class="cta"><a class="btn" href="#">Notes</a></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 6 -->
+        <article class="proj" data-kind="web">
+          <figure class="thumb" aria-hidden="true">
+            <picture>
+              <source type="image/webp"
+                srcset="
+                  https://picsum.photos/800/450.webp?random=206 800w,
+                  https://picsum.photos/1200/675.webp?random=206 1200w
+                " />
+              <img
+                src="https://picsum.photos/800/450?random=206"
+                alt="Project thumbnail placeholder"
+                width="800" height="450" loading="lazy"
+                sizes="(max-width: 620px) 100vw, (max-width: 980px) 50vw, 33vw" />
+            </picture>
+          </figure>
+          <div class="body">
+            <div class="title">Blackjack — JS Modules</div>
+            <div class="meta"><span class="badge">ES6</span><span class="badge">Modules</span></div>
+            <div class="impact muted">“Modular Game/Deck/Player classes, clean state.”</div>
+            <div class="row">
+              <button class="quick" type="button" aria-disabled="true">Quick-view</button>
+              <div class="cta"><a class="btn" href="#">Repo</a></div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- ================== Footer ================== -->
+      <footer>© 2025 • Firstname Lastname</footer>
+    </main>
+  </body>
 </html>
