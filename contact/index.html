@@ -1,62 +1,146 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Contact — Nicholas Chan</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>main { border: 1px solid #bbb; }</style>
-</head>
-<body>
-<header>
-  <nav aria-label="primary">
-    <a href="/">Home</a> | <a href="/projects/">Projects</a> | <a href="/about/">About</a>
-  </nav>
-</header>
+<!DOCTYPE html>
+<html lang="en" data-theme="auto">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact — Nicholas Theodorus Chan</title>
+    <meta name="description" content="Get in touch with Nicholas — email, links, and a clean accessible contact form." />
 
-<main>
-  <h1>Contact Information</h1>
+    <!-- Fonts (same as landing) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..900&family=Space+Grotesk:wght@400..700&display=swap" rel="stylesheet" />
 
-  <section>
-    <h2>Email</h2>
-    <p><a href="mailto:nicholastc14@gmail.com">nicholastc14@gmail.com</a></p>
-  </section>
+    <!-- Shared stylesheet -->
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <!-- ================== Nav (shared) ================== -->
+    <header class="nav">
+      <div class="wrap nav-inner">
+        <div class="brand">
+          <span class="brand-dot" aria-hidden="true"></span>
+          <span>Nicholas Theodorus Chan</span>
+        </div>
 
-  <section>
-    <h2>Contact Form (structure only)</h2>
-    <form>
-      <fieldset>
-        <legend>Send a message</legend>
+        <nav class="links" aria-label="Primary">
+          <a href="/index.html">Home</a>
+          <a href="/projects/index.html">Projects</a>
+          <a href="/about/index.html">About</a>
+          <a href="/contact/index.html">Contact</a>
+          <!-- required links surfaced on page 1 -->
+          <a id="repo" href="https://github.com/NicholasTc/cse134b-portfolio-nicholas-chan/tree/main" aria-label="GitHub repository">Repo</a>
+        </nav>
+      </div>
+    </header>
 
-        <p>
-          <label for="name">Name</label>
-          <input id="name" name="name" type="text" autocomplete="name" required>
-        </p>
+    <main class="wrap contact-main">
+      <!-- ================== Hero ================== -->
+      <section class="hero contact-hero" aria-label="Intro">
+        <h1>Let’s build something useful.</h1>
+        <p class="lead">Email works best. I usually reply within 1–2 days with clear next steps.</p>
 
-        <p>
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="5"></textarea>
-        </p>
+        <div class="hero-media" aria-hidden="true">
+          <picture>
+            <source
+              type="image/webp"
+              srcset="
+                https://picsum.photos/1200/650.webp?random=77 1200w,
+                https://picsum.photos/1600/867.webp?random=77 1600w
+              " />
+            <img
+              src="https://picsum.photos/1200/650?random=77"
+              alt=""
+              width="1200" height="650" loading="lazy"
+              sizes="(max-width: 900px) 100vw, 1200px" />
+          </picture>
+        </div>
+      </section>
 
-        <button type="button">Submit</button>
-      </fieldset>
-    </form>
-  </section>
+      <!-- ================== Two-column layout ================== -->
+      <section class="contact-grid" aria-label="Contact options and form">
+        <!-- Info card -->
+        <aside class="card info-card" aria-labelledby="info-title">
+          <h2 id="info-title">Contact Information</h2>
+          <ul class="contact-list">
+            <li>
+              <span class="label">Email</span>
+              <a class="link" href="mailto:nicholastc14@gmail.com">nicholastc14@gmail.com</a>
+            </li>
+            <li>
+              <span class="label">GitHub</span>
+              <a class="link" href="https://github.com/NicholasTc" target="_blank" rel="noopener">NicholasTc</a>
+            </li>
+            <li>
+              <span class="label">LinkedIn</span>
+              <a class="link" href="https://www.linkedin.com/in/nictc/" target="_blank" rel="noopener">nictc</a>
+            </li>
+            <li>
+              <span class="label">Based</span>
+              <span class="muted">San Diego, CA</span>
+            </li>
+          </ul>
 
-  <section>
-    <h2>Preview (iframe)</h2>
-    <iframe title="Mini preview"
-            width="320" height="180"
-            srcdoc="<!doctype html><html><body><p>Hello from <b>iframe</b>.</p></body></html>"></iframe>
-  </section>
+          <div class="mini-frame">
+            <h3 class="mini-title">Preview (iframe)</h3>
+            <div class="ratio">
+              <iframe
+                title="Mini preview"
+                srcdoc="<!doctype html><html><body style='margin:0;font:14px system-ui;color:#222'><p style='padding:10px'>Hello from <b>iframe</b>.</p></body></html>"
+                loading="lazy"></iframe>
+            </div>
+          </div>
+        </aside>
 
-  <dialog open>
-    <p>Thanks for reaching out! This is a static demo dialog.</p>
-  </dialog>
-</main>
+        <!-- Form card (static; no JS) -->
+        <section class="card form-card" aria-labelledby="form-title">
+          <h2 id="form-title">Send a message</h2>
+          <form method="post" action="#" novalidate>
+            <fieldset class="fields">
+              <legend class="sr-only">Your details</legend>
 
-<footer>
-  <p>Find me on <a href="https://github.com/NicholasTc">GitHub</a> and
-     <a href="https://www.linkedin.com/in/nictc/">LinkedIn</a>.</p>
-</footer>
-</body>
+              <div class="field">
+                <label for="name">Name <span class="req" aria-hidden="true">*</span></label>
+                <input id="name" name="name" type="text" autocomplete="name" required placeholder="Your name" />
+                <p class="hint" id="name-hint">Required.</p>
+              </div>
+
+              <div class="field">
+                <label for="email">Email <span class="req" aria-hidden="true">*</span></label>
+                <input id="email" name="email" type="email" autocomplete="email" required placeholder="you@example.com" />
+                <p class="hint" id="email-hint">I’ll only use this to reply.</p>
+              </div>
+
+              <div class="field">
+                <label for="subject">Subject</label>
+                <input id="subject" name="subject" type="text" placeholder="What’s this about?" />
+              </div>
+
+              <div class="field">
+                <label for="message">Message <span class="req" aria-hidden="true">*</span></label>
+                <textarea id="message" name="message" rows="6" required placeholder="How can I help?"></textarea>
+              </div>
+
+              <div class="consent">
+                <input id="ok" name="ok" type="checkbox" />
+                <label for="ok">You can email me back about this inquiry.</label>
+              </div>
+            </fieldset>
+
+            <div class="form-actions">
+              <button class="btn primary" type="submit"><span class="shine"></span>Submit</button>
+              <button class="btn" type="reset"><span class="shine"></span>Reset</button>
+            </div>
+
+            <!-- Present but static to satisfy “no JS” -->
+            <dialog class="modal" id="thanks" hidden>
+              <p>Thanks! This demo form doesn’t submit yet.</p>
+            </dialog>
+          </form>
+        </section>
+      </section>
+
+      <footer>© 2025 • Nicholas Theodorus Chan</footer>
+    </main>
+  </body>
 </html>

@@ -1,0 +1,3 @@
+CSS Nesting and @scope (Baseline 2024/2025): I used native CSS Nesting (e.g., .links { & a { … } }) to co-locate related rules without a preprocessor, reducing selector repetition and improving readability. I also used the @scope (.about) { … } at-rule so styles only apply within the About section, which prevents accidental bleed and makes components more modular. Both features are part of the modern CSS Baseline and help me write cleaner, safer, and more maintainable styles.
+
+Note: for all of the content and placeholder, it does not accurately reflect my resume values and skills, as I typed them just on top of my head, will revise this in the future upon further stages in the project.

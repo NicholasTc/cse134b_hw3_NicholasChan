@@ -822,3 +822,162 @@ footer{
 .val h3{
   margin: 0 0 .375rem;
 }
+
+/* CONTACT PAGE STYLE CSS */
+
+.contact-main{
+  margin-top: .25rem;
+}
+
+/* hero tweaks for contact */
+.contact-hero{
+  padding-bottom: 1.5rem;
+}
+.contact-hero .hero-media{
+  margin-top: 1.25rem;
+  min-height: 32dvh; /* dynamic viewport unit */
+}
+
+/* Reusable card (matches panels/sections on other pages) */
+.card{
+  background: var(--surface, #0f172a);
+  border: 1px solid color-mix(in oklab, var(--line, #1f2a3b) 60%, transparent);
+  border-radius: var(--radius, 16px);
+  box-shadow: var(--shadow, 0 18px 50px rgba(2,6,23,.35));
+  padding: 1.125rem;
+}
+
+/* Grid layout */
+.contact-grid{
+  display: grid;
+  gap: 1.125rem;
+  grid-template-columns: 1.15fr 1fr;
+  margin-top: 1.125rem;
+}
+@media (max-width: 900px){
+  .contact-grid{ grid-template-columns: 1fr; }
+}
+
+/* Info card */
+.info-card h2{
+  margin: 0 0 .5rem;
+}
+.contact-list{
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+  display: grid;
+  gap: .5rem;
+}
+.contact-list li{
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  align-items: baseline;
+  gap: .75rem;
+  padding: .5rem .625rem;
+  border: 1px solid color-mix(in oklab, var(--line) 60%, transparent);
+  border-radius: 12px;
+  background: color-mix(in oklab, var(--surface) 90%, transparent);
+}
+.contact-list .label{
+  color: var(--muted);
+}
+
+/* iframe preview (accessible ratio) */
+.mini-frame{ margin-top: .75rem; }
+.mini-title{ margin: 0 0 .375rem; }
+.ratio{
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid color-mix(in oklab, var(--line) 60%, transparent);
+  aspect-ratio: 16 / 9;
+}
+.ratio iframe{
+  position: absolute; inset: 0; width: 100%; height: 100%; border: 0;
+}
+
+/* Form card */
+.form-card h2{
+  margin: 0 0 .5rem;
+}
+
+/* field styles + variables */
+:root{
+  --field-bg: color-mix(in oklab, var(--surface) 85%, transparent);
+  --field-border: color-mix(in oklab, var(--line) 70%, transparent);
+  --field-focus: color-mix(in oklab, var(--accent) 45%, transparent);
+}
+
+/* @scope keeps form styles local */
+@scope (.form-card){
+  .fields{
+    display: grid;
+    gap: .875rem;
+    margin: .75rem 0 1rem;
+  }
+  .field{
+    display: grid;
+    gap: .375rem;
+  }
+  .field label{
+    font-weight: 600;
+    font-size: .95rem;
+  }
+  .field input,
+  .field textarea{
+    background: var(--field-bg);
+    color: var(--text);
+    border: 1px solid var(--field-border);
+    border-radius: 12px;
+    padding: .75rem .875rem;
+    font: inherit;
+    outline: none;
+    transition: border-color .18s ease, transform .12s ease, box-shadow .18s ease;
+  }
+  .field input:focus-visible,
+  .field textarea:focus-visible{
+    border-color: var(--field-focus);
+    box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 24%, transparent);
+    transform: translateY(-1px);
+  }
+  .hint{
+    color: var(--muted);
+    margin: 0;
+    font-size: .85rem;
+  }
+  .req{
+    color: color-mix(in oklab, var(--accent) 85%, white);
+  }
+  .consent{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    margin-top: .25rem;
+    font-size: .95rem;
+  }
+  .form-actions{
+    display: flex;
+    gap: .625rem;
+    flex-wrap: wrap;
+  }
+}
+
+/* Baseline feature demo: :has() highlights invalid fields/groups */
+.form-card:has(:invalid){
+  box-shadow: 0 0 0 2px color-mix(in oklab, var(--accent) 26%, transparent);
+}
+.field:has(:invalid) input,
+.field:has(:invalid) textarea{
+  border-color: color(display-p3 0.95 0.45 0.45 / .85); /* wider-gamut accent */
+}
+
+/* Motion care already global; buttons share existing .btn styles */
+
+/* Extra small refinements */
+.link:hover{ color: var(--text); }
+
+/* Keep contrast strong in light theme */
+:root[data-theme="light"] .contact-list li{
+  background: color-mix(in oklab, var(--surface) 96%, white);
+}
