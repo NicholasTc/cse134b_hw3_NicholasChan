@@ -54,10 +54,11 @@ body{
   transition: background .35s ease, color .25s ease;
 }
 
+/* Stop the glow from widening the page */
 body::before{
   content: "";
   position: fixed;
-  inset: -25dvh -10dvw -35dvh -10dvw;
+  inset: -25dvh 0 -35dvh 0;   /* ← remove the -10dvw left/right */
   z-index: -1;
   pointer-events: none;
   background:
@@ -65,7 +66,13 @@ body::before{
     radial-gradient(50vw 30vw at 80% -10%, color-mix(in oklab, var(--accent) 16%, transparent), transparent 60%);
   filter: blur(28px);
   opacity: .9;
+
+  /* keep the glow wide without affecting layout width */
+  left: 50%;
+  width: 120vw;
+  transform: translateX(-50%);
 }
+
 
 body::after{
   content: "";
@@ -376,6 +383,10 @@ h1{
   grid-template-columns: 1.25fr 1fr;
   gap: 1.125rem;
 }
+
+/* Allow grid children to shrink instead of pushing the row wider */
+.featured > * { min-width: 0; }
+
 
 @media (max-width: 900px){
   .featured{
@@ -980,4 +991,83 @@ footer{
 /* Keep contrast strong in light theme */
 :root[data-theme="light"] .contact-list li{
   background: color-mix(in oklab, var(--surface) 96%, white);
+}
+
+/* Mobile responsive design (≤ 420px) */
+@media (max-width: 420px){
+  .wrap{ padding-inline: .875rem; }
+
+  /* Nav: stack and shrink */
+  .nav-inner{
+    height: auto;
+    padding-block: .5rem;
+    flex-wrap: wrap;
+    row-gap: .5rem;
+  }
+  .brand{ font-size: .9rem; }
+  .links{
+    flex: 1 1 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .links a{ font-size: .9rem; }
+
+  /* Hero */
+  .hero{ padding-top: 4.25rem; }
+  h1{ font-size: clamp(28px, 8.5vw, 40px); }
+  .hero-media{ min-height: 210px; border-radius: 14px; }
+
+  /* “Highlighted Projects” header row */
+  .projects-head{
+    flex-direction: column;
+    align-items: stretch;
+    gap: .5rem;
+  }
+  .controls{ flex-wrap: wrap; }
+  .filters{ width: 100%; justify-content: flex-start; }
+  .filter{ padding: .45rem .6rem; font-size: .85rem; }
+
+  /* Featured block spacing */
+  .featured{ gap: .75rem; }
+  .panel{ padding: .9rem; }
+  .kpis{ gap: .5rem; }
+  .kpi{ font-size: .8rem; }
+
+  /* Project cards grid + spacing */
+  .proj-grid{ gap: .9rem; }
+  .proj .body{ padding: .75rem; }
+  .proj .title{ font-size: 1rem; }
+
+  /* About + footer spacing on landing */
+  .about{ margin-top: 2.75rem; padding: 1.25rem; }
+  footer{ margin-top: 2.5rem; }
+
+  /* one issue i found: image still overflows, so adding this to ensure/overrides safely that the image will not overflows*/
+
+    /* Let grid children shrink instead of forcing the row wider */
+    .featured > * { min-width: 0; }
+
+    /* Belt & suspenders: keep the featured visual strictly inside */
+    .featured .visual,
+    .featured .visual picture,
+    .featured .visual img {
+    width: 100%;
+    max-width: 100%;
+    }
+
+    /* Optional: slightly tighter radii on tiny screens prevents 1px peeking */
+    @media (max-width: 420px){
+    .featured { gap: .75rem; }
+    .featured .visual { border-radius: 14px; }
+    }
+
+}
+
+/* ================== Small phones safety (≤ 340px) ================== */
+@media (max-width: 340px){
+  .links{ gap: 10px; }
+  .links a{ font-size: .85rem; }
+  .filter{ font-size: .8rem; }
+  .btn{ --pad-y: .7rem; --pad-x: 1.1rem; font-size: 1rem; }
 }
